@@ -7,19 +7,26 @@
 #include <pthread.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#include "network_info.h"
-#include "udp_multicast.h"
-#include "tcp_connection.h"
 
+#include "network_info.h"
+#include "tcp_connection.h"
+#include "udp_multicast.h"
+
+#define UDP_MULTICAST_ADDR "239.0.0.1"
+#define UDP_PORT 6000
 #define TCP_PORT 7000
+#define MAX_BUF_SIZE 1024
+
+char START_IP[INET_ADDRSTRLEN];
+char END_IP[INET_ADDRSTRLEN];
 
 int main() {
     int udp_socket, tcp_socket;
     struct sockaddr_in sa;
     sa.sin_family = AF_INET;
     sa.sin_addr.s_addr = inet_addr("192.168.200.128");
-
-    getIPAddressInfo(&sa, "255.255.255.0");
+    char ip_address[INET_ADDRSTRLEN];
+    getIPAddressInfo(&sa, "255.255.255.0",ip_address);
 
     printf("Server started.\n");
 

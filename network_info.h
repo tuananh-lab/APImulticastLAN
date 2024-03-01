@@ -18,7 +18,8 @@
 
 char START_IP[INET_ADDRSTRLEN];
 char END_IP[INET_ADDRSTRLEN];
+char IP_ADDRESS[INET_ADDRSTRLEN];
 
-void getIPAddressInfo(struct sockaddr_in *sa, const char *subnetmask);
+void getIPAddressInfo(struct sockaddr_in *sa, const char *subnetmask,char *ip_address);
 
 #endif /* NETWORK_INFO_H */

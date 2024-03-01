@@ -1,10 +1,12 @@
 #include "network_info.h"
 
-void getIPAddressInfo(struct sockaddr_in *sa, const char *subnetmask) {
+void getIPAddressInfo(struct sockaddr_in *sa, const char *subnetmask, char *ip_address) {
     char ipaddress[INET_ADDRSTRLEN];
 
     // Convert binary IP address to human-readable format
     inet_ntop(AF_INET, &(sa->sin_addr), ipaddress, INET_ADDRSTRLEN);
+
+    strcpy(IP_ADDRESS, ipaddress);
 
     // Convert IP address and subnet mask strings to network addresses
     struct in_addr addr, mask;

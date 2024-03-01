@@ -1,7 +1,5 @@
 #include "tcp_connection.h"
 
-
-
 void *handle_tcp_connection(void *arg) {
     int client_socket = *((int *)arg);
     char buffer[MAX_BUF_SIZE];
@@ -32,3 +30,4 @@ void *handle_tcp_connection(void *arg) {
     close(client_socket);
     pthread_exit(NULL);
 }
+

@@ -18,6 +18,7 @@
 
 char START_IP[INET_ADDRSTRLEN];
 char END_IP[INET_ADDRSTRLEN];
+char IP_ADDRESS[INET_ADDRSTRLEN];
 
 void *multicast_udp(void *arg);
 
