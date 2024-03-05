@@ -10,9 +10,8 @@
 
 #include "network_info.h"
 #include "tcp_connection.h"
-#include "udp_multicast.h"
+#include "udp_unicast.h"
 
-#define UDP_MULTICAST_ADDR "239.0.0.1"
 #define UDP_PORT 6000
 #define TCP_PORT 7000
 #define MAX_BUF_SIZE 1024
@@ -59,8 +58,8 @@ int main() {
     printf("TCP server started on port %d\n", TCP_PORT);
 
     pthread_t udp_thread;
-    if (pthread_create(&udp_thread, NULL, multicast_udp, &udp_socket) != 0) {
-        perror("Thread creation for UDP broadcast failed");
+    if (pthread_create(&udp_thread, NULL,send_unicast, &udp_socket) != 0) {
+        perror("Thread creation for UDP unicast failed");
         exit(EXIT_FAILURE);
     }
 

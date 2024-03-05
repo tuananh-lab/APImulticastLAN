@@ -11,7 +11,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 
-#define UDP_MULTICAST_ADDR "239.0.0.1"
+
 #define UDP_PORT 6000
 #define TCP_PORT 7000
 #define MAX_BUF_SIZE 1024
